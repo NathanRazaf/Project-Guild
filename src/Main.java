@@ -1,57 +1,70 @@
+import guild.herotypes.Hero;
 import guildcommands.*;
 import guild.*;
-import herotypes.*;
-public class Main {
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class Main {
+    /**
+     * Args: array with
+     * <ol>
+     *     <li>guild:&lt;montant initial&gt;,&lt;armures initiales&gt;</li>
+     * </ol>
+     *
+     * @param args
+     */
     public static void main(String[] args) {
+        String errorLog = "Erreurs:";
         GuildCommandSystem guildCommandSystem = new GuildCommandSystem(args);
 
-        Guilde maGuilde = makeGuilde(guildCommandSystem.nextCommand());
+        Guilde maGuilde = makeGuilde(guildCommandSystem.actualCommand());
+        Bank maBanque = new Bank(maGuilde.getInitAmount(),maGuilde.getArmorNumber());
 
         while (guildCommandSystem.hasNextCommand()) {
             GuildCommand command = guildCommandSystem.nextCommand();
             switch (command.getName()) {
                 case "buy-hero" -> {
-                    String heroName = command.nextString();
-                    int category = command.nextInt();
-                    double costMoney = command.nextDouble();
-                    int costArmor = command.nextInt();
-                    double healthPoints = command.nextInt();
-                    }
+                    String name = command.nextString();
+                    int heroCategory = command.nextInt();
+                    double moneyCost = command.nextDouble();
+                    int armorsCost = command.nextInt();
+                    double healthPointsInit = command.nextDouble();
 
-                case "buy-armor" -> {
-                    int armorsBought = command.nextInt();
-                    int armorPrice = command.nextInt();
-                    if (maGuilde.getInitAmount() < armorsBought*armorPrice) {
-                        System.out.println("Non tu peux pas");
+                    if (maBanque.getMoney() >= moneyCost && maBanque.getArmors() >= armorsCost) {
+                        maGuilde.heroList.get(0).add(new Hero(name, heroCategory, healthPointsInit));
+                        maBanque.setMoney(maBanque.getMoney()-moneyCost);
+                        maBanque.setArmors(maBanque.getArmors()-armorsCost);
                     }
                     else {
-                        System.out.println("Armures achetées:"+armorsBought);
+                        errorLog+="/n-Il vous manque de l'argent/des armures pour acheter "+name+".";
+                    }
+
+                }
+                    case "buy-armor" -> {
+                        int armorsBought = command.nextInt();
+                        int costArmor = command.nextInt();
+                    }
+                    case "do-quest" -> {
+                        int questCategory = command.nextInt();
+                        double healthCost = command.nextDouble();
+                        int moneyReward = command.nextInt();
+                        int armorReward = command.nextInt();
+                    }
+                    case "train-hero" -> {
+                        String heroName = command.nextString();
                     }
                 }
-                case "do-quest" -> {
-                    int category = command.nextInt();
-                    double healthCost = command.nextDouble();
-                    int moneyReward = command.nextInt();
-                    int armorReward = command.nextInt();
-                }
-                case "train-hero" -> {
-                    String name = command.nextString();
-                }
             }
+        System.out.println("Guild Bank account : "+maBanque.getMoney()+" gold and "+maBanque.getArmors()+" armours");
+        System.out.println(maGuilde.printHeroList().replaceAll("/n",System.getProperty("line.separator")));
+        System.out.println(errorLog.replaceAll("/n",System.getProperty("line.separator")));
+
+        }
+
+        public static Guilde makeGuilde (GuildCommand command){
+            double montantInitial = command.nextDouble();
+            int nbArmures = command.nextInt();
+            return new Guilde(montantInitial, nbArmures);
         }
     }
-
-
-    public static Guilde makeGuilde(GuildCommand command) {
-        int montantInitial = command.nextInt();
-        int nbArmures = command.nextInt();
-        return new Guilde(montantInitial, nbArmures);
-    }
-
-
-
-
-
-
-}
