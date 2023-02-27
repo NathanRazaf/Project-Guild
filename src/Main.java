@@ -14,6 +14,8 @@ public class Main {
      *
      * @param args
      */
+
+    //test
     public static void main(String[] args) {
         String errorLog = "Erreurs:";
         GuildCommandSystem guildCommandSystem = new GuildCommandSystem(args);
