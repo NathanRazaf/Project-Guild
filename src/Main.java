@@ -45,6 +45,15 @@ public class Main {
                     case "buy-armor" -> {
                         int armorsBought = command.nextInt();
                         int costArmor = command.nextInt();
+
+                        if (maBanque.getMoney() >= costArmor*armorsBought) {
+                            maBanque.setArmors(maBanque.getArmors()+armorsBought);
+                            maBanque.setMoney(maBanque.getMoney()-costArmor*armorsBought);
+                        }
+                        else {
+                            errorLog+="/n-Il vous manque de l'argent pour acheter "+armorsBought+" armures à ";
+                            errorLog+=+costArmor+" gold chacune.";
+                        }
                     }
                     case "do-quest" -> {
                         int questCategory = command.nextInt();
@@ -57,9 +66,18 @@ public class Main {
                     }
                 }
             }
+
+        System.out.println("");
         System.out.println("Guild Bank account : "+maBanque.getMoney()+" gold and "+maBanque.getArmors()+" armours");
-        System.out.println(maGuilde.printHeroList().replaceAll("/n",System.getProperty("line.separator")));
-        System.out.println(errorLog.replaceAll("/n",System.getProperty("line.separator")));
+        if (maGuilde.printHeroList() != "Heroes :") {
+            System.out.println(maGuilde.printHeroList().replaceAll("/n",System.getProperty("line.separator")));
+        } else {
+            System.out.println("Aucun héros dans l'inventaire.");
+        }
+
+        if (errorLog != "Erreurs:") {
+            System.out.println(errorLog.replaceAll("/n",System.getProperty("line.separator")));
+        }
 
         }
 
