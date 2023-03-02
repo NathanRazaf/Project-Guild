@@ -35,6 +35,10 @@ public class Hero {
         return armorUpgrade;
     }
 
+    public void setHealthPointsCurrent(double healthPointsCurrent) {
+        this.healthPointsCurrent = healthPointsCurrent;
+    }
+
     public void upgradeHero() {
         this.category+=1;
         this.healthPointsInit*=1.5;

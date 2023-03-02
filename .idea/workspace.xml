@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Finish output configuration of Guild project">
+    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Finish train-hero case">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Quete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/guild/Guilde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/Guilde.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" afterDir="false" />
     </list>
@@ -62,7 +63,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677509713622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finish train-hero case">
+      <created>1677786727489</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677786727489</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,6 +86,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finish output configuration of Guild project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish output configuration of Guild project" />
+    <MESSAGE value="Finish train-hero case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish train-hero case" />
   </component>
 </project>

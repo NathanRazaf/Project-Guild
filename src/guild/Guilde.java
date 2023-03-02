@@ -48,7 +48,20 @@ public class Guilde {
                 }
             }
         }
-
         return null;
+    }
+
+    public Hero findHero(int questCategory) {
+        for (int i=questCategory; i<5; i++) {
+            if (heroList.get(i).size() != 0) {
+                return heroList.get(i).get(0);
+            }
+        }
+        for (int i=questCategory-1; i>=0; i--) {
+            if (heroList.get(i).size() != 0) {
+                return heroList.get(i).get(0);
+            }
+        }
+    return null;
     }
 }
