@@ -27,9 +27,18 @@ public class Hero {
         return healthPointsCurrent;
     }
 
+    public double getMoneyUpgrade() {
+        return moneyUpgrade;
+    }
+
+    public int getArmorUpgrade() {
+        return armorUpgrade;
+    }
+
     public void upgradeHero() {
         this.category+=1;
         this.healthPointsInit*=1.5;
+        this.healthPointsCurrent=healthPointsInit;
         this.moneyUpgrade=20*Math.log(category+10);
         this.armorUpgrade= (int) Math.ceil(Math.log(category+10));
     }

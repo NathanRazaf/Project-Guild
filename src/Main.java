@@ -33,7 +33,7 @@ public class Main {
                     double healthPointsInit = command.nextDouble();
 
                     if (maBanque.getMoney() >= moneyCost && maBanque.getArmors() >= armorsCost) {
-                        maGuilde.heroList.get(0).add(new Hero(name, heroCategory, healthPointsInit));
+                        maGuilde.heroList.get(heroCategory-1).add(new Hero(name, heroCategory, healthPointsInit));
                         maBanque.setMoney(maBanque.getMoney()-moneyCost);
                         maBanque.setArmors(maBanque.getArmors()-armorsCost);
                     }
@@ -63,6 +63,20 @@ public class Main {
                     }
                     case "train-hero" -> {
                         String heroName = command.nextString();
+                        Hero chosen = maGuilde.findHero(heroName);
+                        if (chosen == null) {
+                            errorLog+="/n-Vous n'avez pas de héros nommé "+heroName;
+                        }else if (chosen.getCategory() == 5) {
+                            errorLog+="/n-"+heroName+" est déjà au niveau maximum";
+                        }else if (maBanque.getMoney() < chosen.getMoneyUpgrade() &&
+                                  maBanque.getArmors() < chosen.getArmorUpgrade()) {
+                            errorLog+="/n-Vous n'avez pas assez d'argent pour améliorer "+heroName;
+                        } else {
+                            chosen.upgradeHero();
+                            maBanque.setMoney(maBanque.getMoney()-chosen.getMoneyUpgrade());
+                            maBanque.setArmors(maBanque.getArmors()- chosen.getArmorUpgrade());
+                            maGuilde.heroList.get((int) chosen.getCategory()-1).add(chosen);
+                        }
                     }
                 }
             }
@@ -78,6 +92,7 @@ public class Main {
         if (errorLog != "Erreurs:") {
             System.out.println(errorLog.replaceAll("/n",System.getProperty("line.separator")));
         }
+        System.out.println("");
 
         }
 
