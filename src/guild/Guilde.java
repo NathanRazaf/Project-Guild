@@ -9,8 +9,8 @@ public class Guilde {
     public ArrayList<ArrayList<Hero>> heroList = new ArrayList<>();
 
     public Guilde(double initAmount, int armorNumber) {
-        this.initAmount=initAmount;
-        this.armorNumber=armorNumber;
+        this.initAmount = initAmount;
+        this.armorNumber = armorNumber;
         for (int i=0 ; i<5 ; i++) {
             heroList.add(new ArrayList<>());
         }
@@ -37,14 +37,12 @@ public class Guilde {
     }
 
     public Hero findHero(String name) {
-        for (int i=0 ; i<heroList.size() ; i+=1) {
-            if (heroList.get(i) != null) {
-                for (int j=0 ; j<heroList.get(i).size() ; j++) {
-                    if (heroList.get(i).get(j).getName().equals(name)) {
-                        ArrayList clone = (ArrayList) heroList.get(i).clone();
-                        heroList.get(i).remove(j);
-                        return (Hero) clone.get(j);
-                    }
+        for (int i=0 ; i<heroList.size() ; i++) {
+            for (int j=0 ; j<heroList.get(i).size() ; j++) {
+                if (heroList.get(i).get(j).getName().equals(name)) {
+                    ArrayList clone = (ArrayList) heroList.get(i).clone();
+                    heroList.get(i).remove(j);
+                    return (Hero) clone.get(j);
                 }
             }
         }

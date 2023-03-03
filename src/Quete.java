@@ -11,12 +11,6 @@ public class Quete {
         this.armorReward=armorReward;
     }
 
-    public int getQuestCategory() {
-        return questCategory;
-    }
-    public double getHealthCost() {
-        return healthCost;
-    }
     public int getArmorReward() {
         return armorReward;
     }

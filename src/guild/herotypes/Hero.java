@@ -1,10 +1,7 @@
 package guild.herotypes;
-import java.math.*;
 public class Hero {
     protected String name;
     protected int category;
-    protected double costMoney;
-    protected int costArmor;
     protected double healthPointsInit;
     protected double healthPointsCurrent;
     protected double moneyUpgrade;
