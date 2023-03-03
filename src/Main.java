@@ -33,9 +33,14 @@ public class Main {
                     double healthPointsInit = command.nextDouble();
 
                     if (maBanque.getMoney() >= moneyCost && maBanque.getArmors() >= armorsCost) {
-                        maGuilde.heroList.get(heroCategory).add(new Hero(name, heroCategory, healthPointsInit));
-                        maBanque.setMoney(maBanque.getMoney()-moneyCost);
-                        maBanque.setArmors(maBanque.getArmors()-armorsCost);
+                        if (healthPointsInit > 0)  {
+                            maGuilde.heroList.get(heroCategory).add(new Hero(name, heroCategory, healthPointsInit));
+                            maBanque.setMoney(maBanque.getMoney()-moneyCost);
+                            maBanque.setArmors(maBanque.getArmors()-armorsCost);
+                        }
+                        else {
+                            errorLog+="/n-Le héros que vous avez acheté est déjà mort...";
+                        }
                     }
                     else {
                         errorLog+="/n-Il vous manque de l'argent/des armures pour acheter "+name+".";

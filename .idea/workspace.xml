@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Finish train-hero case">
+    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Finish full project v1.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/Guilde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/Guilde.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +27,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2M175V6pm6ZjUqM7nZxKxFukzFD" />
+  <component name="ProjectLevelVcsManager">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -70,7 +70,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677786727489</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finish full project v1.0">
+      <created>1677794250606</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677794250606</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +94,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Finish output configuration of Guild project" />
     <MESSAGE value="Finish train-hero case" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish train-hero case" />
+    <MESSAGE value="Finish full project v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish full project v1.0" />
   </component>
 </project>
