@@ -4,17 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Version 1.0.1: Add a conditional error case when the user inputs a negative health points number for the hero bought">
+    <list default="true" id="ce99e143-3de8-4b7b-ba37-28507941619d" name="Changes" comment="Version 1.1.0 : Tweak a little bit to avoid unnecessary codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Quete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Quete.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/guild/Guilde.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/Guilde.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/CommonHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/CommonHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/EpicHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/EpicHero.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/LegendaryHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/LegendaryHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/RareHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/RareHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/guild/herotypes/UncommonHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/guild/herotypes/UncommonHero.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677856009374</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Version 1.1.0 : Tweak a little bit to avoid unnecessary codes">
+      <created>1677864387659</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677864387659</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +112,7 @@
     <MESSAGE value="Finish train-hero case" />
     <MESSAGE value="Finish full project v1.0" />
     <MESSAGE value="Version 1.0.1: Add a conditional error case when the user inputs a negative health points number for the hero bought" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1.0.1: Add a conditional error case when the user inputs a negative health points number for the hero bought" />
+    <MESSAGE value="Version 1.1.0 : Tweak a little bit to avoid unnecessary codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1.1.0 : Tweak a little bit to avoid unnecessary codes" />
   </component>
 </project>

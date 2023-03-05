@@ -8,7 +8,7 @@ public class Main {
         GuildCommandSystem guildCommandSystem = new GuildCommandSystem(args);
 
         Guilde maGuilde = makeGuilde(guildCommandSystem.actualCommand());
-        Bank maBanque = new Bank(maGuilde.getInitAmount(),maGuilde.getArmorNumber());
+        Bank maBanque = new Bank(maGuilde.getMoneyInit(),maGuilde.getArmorNumber());
 
         while (guildCommandSystem.hasNextCommand()) {
             GuildCommand command = guildCommandSystem.nextCommand();
@@ -18,11 +18,11 @@ public class Main {
                     int heroCategory = command.nextInt();
                     double moneyCost = command.nextDouble();
                     int armorsCost = command.nextInt();
-                    double healthPointsInit = command.nextDouble();
+                    double healthPointsMax = command.nextDouble();
 
                     if (maBanque.getMoney() >= moneyCost && maBanque.getArmors() >= armorsCost) {
-                        if (healthPointsInit > 0)  {
-                            maGuilde.heroList.get(heroCategory).add(new Hero(name, heroCategory, healthPointsInit));
+                        if (healthPointsMax > 0)  {
+                            maGuilde.heroList.get(heroCategory).add(new Hero(name, heroCategory, healthPointsMax));
                             maBanque.setMoney(maBanque.getMoney() - moneyCost);
                             maBanque.setArmors(maBanque.getArmors() - armorsCost);
                         }
@@ -64,10 +64,10 @@ public class Main {
                                 errorLog += "/n-Vous n'avez aucun héros dans l'inventaire";
                             }
                             else {
-                                chosen.setHealthPointsCurrent(chosen.getHealthPointsCurrent() -
-                                        quest.realHealthCost((int) chosen.getCategory()));
-                                if (chosen.getHealthPointsCurrent() <= 0) {
-                                    maGuilde.heroList.get((int) chosen.getCategory()).remove(chosen);
+                                chosen.setHealthPoints(chosen.getHealthPoints() -
+                                        quest.realHealthCost(chosen.getCategory()));
+                                if (chosen.getHealthPoints() <= 0) {
+                                    maGuilde.heroList.get(chosen.getCategory()).remove(chosen);
                                     errorLog += "/n-" + chosen.getName() + " est mort.";
                                 } else {
                                     maBanque.setMoney(maBanque.getMoney() + quest.getMoneyReward());
@@ -81,19 +81,21 @@ public class Main {
                         Hero chosen = maGuilde.findHero(heroName);
                         if (chosen == null) {
                             errorLog += "/n-Vous n'avez pas de héros nommé " + heroName;
-                        }else if (chosen.getCategory() == 4) {
+                        }
+                        else if (chosen.getCategory() == 4) {
                             errorLog += "/n-" + heroName + " est déjà au niveau maximum";
-                            maGuilde.heroList.get((int) chosen.getCategory()).add(chosen);
-
-                        }else if (maBanque.getMoney() < chosen.getMoneyUpgrade() &&
+                            maGuilde.heroList.get(chosen.getCategory()).add(chosen);
+                        }
+                        else if (maBanque.getMoney() < chosen.getMoneyUpgrade() &&
                                   maBanque.getArmors() < chosen.getArmorUpgrade()) {
                             errorLog += "/n-Vous n'avez pas assez d'argent pour améliorer " + heroName;
-                            maGuilde.heroList.get((int) chosen.getCategory()).add(chosen);
-                        } else {
+                            maGuilde.heroList.get(chosen.getCategory()).add(chosen);
+                        }
+                        else {
                             chosen.upgradeHero();
                             maBanque.setMoney(maBanque.getMoney() - chosen.getMoneyUpgrade());
                             maBanque.setArmors(maBanque.getArmors()- chosen.getArmorUpgrade());
-                            maGuilde.heroList.get((int) chosen.getCategory()).add(chosen);
+                            maGuilde.heroList.get(chosen.getCategory()).add(chosen);
                         }
                     }
                 }
@@ -102,11 +104,12 @@ public class Main {
         System.out.println("Guild Bank account : "+maBanque.getMoney()+" gold and "+maBanque.getArmors()+" armours");
         if (maGuilde.printHeroList().equals("Heroes :")) {
             System.out.println("Aucun héros dans l'inventaire.");
-        } else {
+        }
+        else {
             System.out.println(maGuilde.printHeroList().replaceAll("/n",System.getProperty("line.separator")));
         }
 
-        if (errorLog != "Erreurs:") {
+        if (!errorLog.equals("Erreurs:")) {
             System.out.println(errorLog.replaceAll("/n",System.getProperty("line.separator")));
         }
     }

@@ -4,20 +4,20 @@ import guild.herotypes.*;
 import java.util.*;
 
 public class Guilde {
-    private double initAmount;
-    private int armorNumber;
+    private final double moneyInit;
+    private final int armorNumber;
     public ArrayList<ArrayList<Hero>> heroList = new ArrayList<>();
 
-    public Guilde(double initAmount, int armorNumber) {
-        this.initAmount = initAmount;
+    public Guilde(double moneyInit, int armorNumber) {
+        this.moneyInit = moneyInit;
         this.armorNumber = armorNumber;
         for (int i=0 ; i<5 ; i++) {
             heroList.add(new ArrayList<>());
         }
     }
 
-    public double getInitAmount() {
-        return initAmount;
+    public double getMoneyInit() {
+        return moneyInit;
     }
 
     public int getArmorNumber() {
@@ -29,8 +29,8 @@ public class Guilde {
         for (int i=0; i<5; i++) {
             for (int j=0; j<heroList.get(i).size(); j++) {
                 heroLog+="/n-" + heroList.get(i).get(j).getName() + ": level="
-                         + (int) heroList.get(i).get(j).getCategory()
-                         + " HP=" + heroList.get(i).get(j).getHealthPointsCurrent();
+                         + heroList.get(i).get(j).getCategory()
+                         + " HP=" + heroList.get(i).get(j).getHealthPoints();
             }
         }
         return heroLog;
